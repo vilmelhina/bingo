@@ -1,0 +1,130 @@
+{
+    "bingorutor": [
+        {
+            "phrase": "ofrivilligt täbymål",
+            "present": ["ville"],
+            "not on board": ["ville"],
+            "disabled": false
+        },
+        {
+            "phrase": "ville tappar bort telefon",
+            "present": ["ville"],
+            "not on board": ["ville"],
+            "disabled": false
+        },
+        {
+            "phrase": "hallå!!!",
+            "present": [],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "patricia bjuder på någon form av mat",
+            "present": ["patricia"],
+            "not on board": ["patrica"],
+            "disabled": false
+        },
+        {
+            "phrase": "kevin blir arg",
+            "present": ["kevin"],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "kevin byter bil",
+            "present": ["kevin"],
+            "not on board": [],
+            "disabled": true
+        },
+        {
+            "phrase": "ville kommenterar patricias tröja",
+            "present": ["ville", "patricia"],
+            "not on board": ["ville"],
+            "disabled": false
+        },
+        {
+            "phrase": "komplimanger på patricias hår",
+            "present": ["patricia"],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "nån tolkar mellan andra",
+            "present": [],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "johan stannar hemma",
+            "present": [],
+            "not on board": ["johan"],
+            "disabled": false
+        },
+        {
+            "phrase": "patricias ögon gör en av tre saker",
+            "present": ["patricia"],
+            "not on board": ["patricia"],
+            "disabled": false
+        },
+        {
+            "phrase": "kevin snurrar sin lock",
+            "present": ["kevin"],
+            "not on board": ["kevin"],
+            "disabled": false
+        },
+        {
+            "phrase": "johan har en spaning",
+            "present": ["johan"],
+            "not on board": ["johan"],
+            "disabled": false
+        },
+        {
+            "phrase": "kevin spring-går",
+            "present": ["kevin"],
+            "not on board": ["kevin"],
+            "disabled": false
+        },
+        {
+            "phrase": "kevin gör ljudeffekter",
+            "present": ["kevin"],
+            "not on board": ["kevin"],
+            "disabled": false
+        },
+        {
+            "phrase": "ville är på patricias sida",
+            "present": ["ville", "patricia"],
+            "not on board": ["ville"],
+            "disabled": false
+        },
+        {
+            "phrase": "ramlösa får kolsyreutbrott",
+            "present": [],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "villehistoria",
+            "present": ["ville"],
+            "not on board": ["ville"],
+            "disabled": false
+        },
+        {
+            "phrase": "varför är texten (färg)?",
+            "present": [],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "visa nåt som inte händer",
+            "present": [],
+            "not on board": [],
+            "disabled": false
+        },
+        {
+            "phrase": "johan skickar många GIFar i rad",
+            "present": [],
+            "not on board": ["johan"],
+            "disabled": false
+        }
+    ]
+}
