@@ -9,34 +9,15 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 public class BoardGenerator {
-    
-    static String[] strings =
-    {
-            "ofrivilligt täbymål",
-            "ville tappar bort telefon",
-            "hallå!!!",
-            "patricia bjuder på någon form av mat",
-            "kevin blir arg",
-            "kevin byter bil",
-            "ville kommenterar patricias tröja",
-            "komplimanger på patricias hår",
-            "nån tolkar mellan andra",
-            "johan stannar hemma",
-            "patricias ögon gör en av tre saker",
-            "kevin snurrar sin lock",
-            "johan har en spaning",
-            "kevin spring-går",
-            "kevin gör ljudeffekter",
-            "ville är på patricias sida",
-            "ramlösa får kolsyreutbrott",
-            "villehistoria",
-            "varför är texten (färg)?",
-            "visa nåt som inte händer",
-            "johan skickar många gifar i rad"
-    };
 
-    public static BingoCell[] loadCells() {
-        ArrayList<BingoCell> bingoCells = new ArrayList<>();
+    BingoCell[] bingoCells;
+
+    public BoardGenerator() {
+        loadCells();
+    }
+
+    public void loadCells() {
+        ArrayList<BingoCell> bingoCellsList = new ArrayList<>();
         Object obj = null;
         try {
             obj = new JSONParser().parse(new FileReader("bingorutor.json"));
@@ -47,22 +28,23 @@ public class BoardGenerator {
         JSONObject jsonObject = (JSONObject) obj; // typecasting obj to JSONObject
         JSONArray jsonCells = (JSONArray) jsonObject.get("bingorutor");
 
+        System.out.println("Totalt " + jsonCells.toArray().length + " rutor.");
+
         for (Object jsonCell : jsonCells) {
             JSONObject cell = (JSONObject) jsonCell;
             if(!(boolean) cell.get("disabled")) {
                 String phrase = (String) cell.get("phrase");
                 Players[] present = playersFromJSON(cell.get("present"));
                 Players[] notOnBoard = playersFromJSON(cell.get("not on board"));
-                bingoCells.add(new BingoCell(phrase, present, notOnBoard));
+                bingoCellsList.add(new BingoCell(phrase, present, notOnBoard));
             }
         }
 
-        BingoCell[] bingoCellArray = new BingoCell[bingoCells.size()];
-        bingoCellArray = bingoCells.toArray(bingoCellArray);
-        return bingoCellArray;
+        bingoCells = new BingoCell[bingoCellsList.size()];
+        bingoCells = bingoCellsList.toArray(bingoCells);
     }
 
-    private static Players[] playersFromJSON(Object obj) {
+    private Players[] playersFromJSON(Object obj) {
         JSONArray jsonCells = (JSONArray) obj;
         ArrayList<Players> playersList = new ArrayList<>();
         for (Object jsonCell : jsonCells) {
@@ -84,17 +66,14 @@ public class BoardGenerator {
         return playersArray;
     }
 
-    /* TODO: funktioner för att göra personliga bingo-brickor, lägg till
-       här + i BingoBoard? */
-    public static String[] boardStrings(int count)
+    // TODO: funktioner för att göra personliga bingo-brickor
+    public String[] boardStrings(int count)
     {
-        BingoCell[] cells = loadCells();
         String[] result = new String[count];
-        int[] indicies = randomInts(count, cells.length);
+        int[] indicies = randomInts(count, bingoCells.length);
         for(int i = 0; i < count; i++)
         {
-            result[i] = cells[indicies[i]].phrase;
-            System.out.print(indicies[i] + " ");
+            result[i] = bingoCells[indicies[i]].phrase;
         }
         System.out.print("\n");
         return result;

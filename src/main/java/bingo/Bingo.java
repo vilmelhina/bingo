@@ -24,6 +24,7 @@ public class Bingo {
 
     public static void main(String[] args) throws FileNotFoundException {
 
+        BoardGenerator boardGenerator = new BoardGenerator();
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(DEST));
@@ -34,7 +35,9 @@ public class Bingo {
         
         for(int i = 0; i < BOARDS; i++)
         {
-            BingoBoard bb = new BingoBoard(SIZE, doc);
+            // opersonlig bringobricka skapas
+            String[] strings = boardGenerator.boardStrings(SIZE * SIZE);
+            BingoBoard bb = new BingoBoard(SIZE, doc, strings);
             outer.addCell(bb.table);
         }
         

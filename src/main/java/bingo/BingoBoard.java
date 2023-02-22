@@ -10,13 +10,11 @@ public class BingoBoard {
     Table table;
     int ptSize = 200;
 
-    public BingoBoard(int size, Document doc) {
+    public BingoBoard(int size, Document doc, String[] strings) {
         table = new Table(size);
         //table.setWidth(200);
         //table.setHeight(200);
         table.setFontSize(8);
-        
-        String[] strings = BoardGenerator.boardStrings(size*size);
 
         for (int i = 0; i < size*size; i++) {
             table.addCell(strings[i]);
